@@ -20,7 +20,10 @@ const RequestSchema = new Schema ({
         type: String,
         required: [true, "Please provide a valid language"]
       },
-      feeling: String,
+      feeling: {
+        type: String,
+        required: [true, "How are you feeling?"]
+      },
       
     })
 

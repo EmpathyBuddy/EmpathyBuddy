@@ -7,13 +7,14 @@ const Request = require("../models/Request.model")
 //  POST /api/requests  -  Creates a new request
 
 router.post("/requests", (req, res, next)=>{
-    const {date, time, phone, language} = req.body;
+    const {date, time, phone, language, feeling} = req.body;
 
     const newRequest = {
         date: date,
         time: time, 
         phone: phone,
-        language: language
+        language: language,
+        feeling: feeling
     }
 
     Request.create(newRequest)
