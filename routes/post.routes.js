@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const Post = require("../models/Post.model")
 
 
-//  POST /api/projects  -  Creates a new project
+//  POST /api/posts  -  Creates a new posts
 
 router.post("/posts", (req, res, next)=>{
     const {title, description} = req.body;
