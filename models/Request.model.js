@@ -24,6 +24,10 @@ const RequestSchema = new Schema ({
         type: String,
         required: [true, "How are you feeling?"]
       },
+      owner: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+      }
       
     })
 

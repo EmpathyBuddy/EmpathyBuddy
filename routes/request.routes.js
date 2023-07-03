@@ -1,19 +1,23 @@
 const router = require("express").Router();
 const mongoose = require("mongoose");
 
-const Request = require("../models/Request.model")
+const Request = require("../models/Request.model");
+const { isAuthenticated } = require("../middleware/jwt.middleware");
 
 
 //  POST /api/requests  -  Creates a new request
 
-router.post("/requests", (req, res, next)=>{
-    const {date, phone, language, feeling} = req.body;
+router.post("/requests", isAuthenticated, (req, res, next) => {
+
+    const { date, phone, language, feeling } = req.body;
+    const owner = req.payload._id
 
     const newRequest = {
         date: date,
         phone: phone,
         language: language,
-        feeling: feeling
+        feeling: feeling,
+        owner: owner,
     }
 
     Request.create(newRequest)
@@ -24,14 +28,14 @@ router.post("/requests", (req, res, next)=>{
                 message: "error creating a new request",
                 error: err
             });
-        })    
+        })
 })
 
 
 // GET /api/requests -  Retrieves all of the request
 router.get('/requests', (req, res, next) => {
     Request.find()
-      
+
         .then(response => {
             res.json(response)
         })
@@ -47,7 +51,7 @@ router.get('/requests', (req, res, next) => {
 
 //  GET /api/requests/:requestId  -  Get details of a specific request by id
 router.get('/requests/:requestId', (req, res, next) => {
-    
+
     const { requestId } = req.params;
 
     if (!mongoose.Types.ObjectId.isValid(requestId)) {
@@ -57,7 +61,7 @@ router.get('/requests/:requestId', (req, res, next) => {
 
 
     Request.findById(requestId)
-        
+
         .then(request => res.json(request))
         .catch(err => {
             console.log("error getting details of a request", err);
@@ -71,8 +75,9 @@ router.get('/requests/:requestId', (req, res, next) => {
 
 
 // PUT /api/requests/:requestId  -  Updates a specific request by id
-router.put('/requests/:requestId', (req, res, next) => {
+router.put('/requests/:requestId', isAuthenticated, (req, res, next) => {
     const { requestId } = req.params;
+    const owner = req.payload._id
 
     if (!mongoose.Types.ObjectId.isValid(requestId)) {
         res.status(400).json({ message: 'Specified id is not valid' });
@@ -87,7 +92,7 @@ router.put('/requests/:requestId', (req, res, next) => {
 
     }
 
-    Request.findByIdAndUpdate(requestId, newDetails, { new: true })
+    Request.findOneAndUpdate({ _id: requestId, owner: owner }, newDetails, { new: true })
         .then((updatedRequest) => res.json(updatedRequest))
         .catch(err => {
             console.log("error updating request", err);
@@ -100,16 +105,17 @@ router.put('/requests/:requestId', (req, res, next) => {
 
 
 // DELETE /api/requests/:requestId  -  Delete a specific request by id
-router.delete('/requests/:requestId', (req, res, next) => {
+router.delete('/requests/:requestId', isAuthenticated, (req, res, next) => {
     const { requestId } = req.params;
+    const owner = req.payload._id
 
     if (!mongoose.Types.ObjectId.isValid(requestId)) {
         res.status(400).json({ message: 'Specified id is not valid' });
         return;
     }
 
-    Request.findByIdAndRemove(requestId)
-        
+    Request.findOneAndRemove({ _id: requestId, owner: owner })
+
         .then(() => res.json({ message: `Request with id ${requestId} was removed successfully.` }))
         .catch(err => {
             console.log("error deleting request", err);
