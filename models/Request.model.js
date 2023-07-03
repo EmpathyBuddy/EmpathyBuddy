@@ -8,10 +8,10 @@ const RequestSchema = new Schema ({
         type: Date,
         required: [true, "Please provide a valid date"]
       },
-    time:{
-        type: String,
-        required: [true, "Please provide a valid time"]
-      },
+    // time:{
+    //     type: String,
+    //     required: [true, "Please provide a valid time"]
+    //   },
     phone:{
         type: String,
         required: [true, "Please provide a valid phone"]

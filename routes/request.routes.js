@@ -7,11 +7,10 @@ const Request = require("../models/Request.model")
 //  POST /api/requests  -  Creates a new request
 
 router.post("/requests", (req, res, next)=>{
-    const {date, time, phone, language, feeling} = req.body;
+    const {date, phone, language, feeling} = req.body;
 
     const newRequest = {
         date: date,
-        time: time, 
         phone: phone,
         language: language,
         feeling: feeling
@@ -82,7 +81,6 @@ router.put('/requests/:requestId', (req, res, next) => {
 
     const newDetails = {
         date: req.body.date,
-        time: req.body.time,
         phone: req.body.phone,
         feeling: req.body.feeling,
 
