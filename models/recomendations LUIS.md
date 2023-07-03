@@ -8,7 +8,6 @@ Post --> CR
 ___
 
 some bonus ideas:
-- functionality to choose date/time for requests
 - display status (ex. request solved or pending)
 - upgrade to buddy (users need to pass a step to able to support other users)
   - in User model, add a boolean "isBuddy" (default: false)

@@ -83,6 +83,7 @@ router.put('/requests/:requestId', (req, res, next) => {
         date: req.body.date,
         phone: req.body.phone,
         feeling: req.body.feeling,
+        language: req.body.language
 
     }
 
