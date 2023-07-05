@@ -14,12 +14,17 @@ const app = express();
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
 require("./config")(app);
 
+app.use((req, res, next) => {
+    console.log(req.referrer);
+    next()
+})
+
 // 👇 Start handling routes here
+app.use("/auth", require("./routes/auth.routes"));
 app.use("/api", require("./routes/index.routes"));
 app.use("/api", require("./routes/request.routes"));
 app.use("/api", require("./routes/post.routes"));
 
-app.use("/auth", require("./routes/auth.routes"));
 
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
