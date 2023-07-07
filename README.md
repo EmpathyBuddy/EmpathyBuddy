@@ -18,7 +18,7 @@ To run in your computer, follow these steps:
 - install dependencies: `npm install`
 - create a `.env` file with the following environment variables
   - ORIGIN, with the location to http://localhost:3000
-  - TOKEN_SECRET: used to sign auth tokens (example, `TOKEN_SECRET=ilovepizza`)
+  - TOKEN_SECRET: used to sign auth tokens (example, `TOKEN_SECRET=y0uRt0k3N$eCr3T`)
 - run the application: `npm run dev` or `npm start`
 
 
