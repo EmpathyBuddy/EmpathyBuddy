@@ -1,5 +1,5 @@
 # Empathy buddy-server
-
+EmpathyBuddy is a platform where you can give and receive empathy. Creating a moment in daily life to request empathic listening is something well established among people initiated in Non Violent Communication. The idea is simple, two people agree on a time limit and one of them offers the wonderful gift of their full presence. There is no back and force talking or judging, there is just empathy. This application provides a global platform where people can connect instantly.
 
 ## About
 
