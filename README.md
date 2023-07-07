@@ -3,7 +3,7 @@ EmpathyBuddy is a platform where you can give and receive empathy. Creating a mo
 
 ## About
 
-REST API for a project management app.
+REST API for Empathy buddy app.
 
 - This repo implements the backend REST API (built in Express + MongoDB).
 - A repository for with the frontend (React App) can be found here: (https://github.com/EmpathyBuddy/empathy-buddy-client)
