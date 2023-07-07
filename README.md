@@ -60,4 +60,13 @@ To run in your computer, follow these steps:
 
 ## Demo
 
-A demo of the website can be found here: https://empathy-buddy.netlify.app/
+You can find this project in: https://empathy-buddy.netlify.app/
+You can also find the back end in: https://newempathybuddynew.adaptable.app
+
+## Contact the developers:
+
+| - | Email | GitHub | 
+| ------------- | ------------- | ------------- |
+| Emilio Moreno  | emiliomoremil@gmail.com  | https://github.com/E-m-i-l-i-o | 
+| Juan Lozano  | jalozanolopez@gmail.com  | https://github.com/Jualolo  | 
+
