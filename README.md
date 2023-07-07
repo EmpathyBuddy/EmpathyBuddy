@@ -60,8 +60,9 @@ To run in your computer, follow these steps:
 
 ## Demo
 
-You can find this project in: https://empathy-buddy.netlify.app/
-You can also find the back end in: https://newempathybuddynew.adaptable.app
+You can find this project at: https://empathy-buddy.netlify.app/
+<br/>
+You can also find the back end at: https://newempathybuddynew.adaptable.app
 
 ## Contact the developers:
 
